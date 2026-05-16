@@ -65,6 +65,12 @@ body {
   display: none;
 }
 
+.title-bar { cursor: move; }
+
+.title-bar {
+  user-select: none;
+}
+
 .subtitle {
     color: #aaa;
     margin-bottom: 30px;

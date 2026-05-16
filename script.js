@@ -25,3 +25,28 @@ function playSong(file) {
   audio.src = file;
   audio.play();
 }
+
+let isDragging = false;
+let offsetX = 0;
+let offsetY = 0;
+
+const windowEl = document.getElementById("media-player");
+const dragBar = document.getElementById("drag-bar");
+
+dragBar.addEventListener("mousedown", (e) => {
+  isDragging = true;
+
+  offsetX = e.clientX - windowEl.offsetLeft;
+  offsetY = e.clientY - windowEl.offsetTop;
+});
+
+document.addEventListener("mousemove", (e) => {
+  if (!isDragging) return;
+
+  windowEl.style.left = (e.clientX - offsetX) + "px";
+  windowEl.style.top = (e.clientY - offsetY) + "px";
+});
+
+document.addEventListener("mouseup", () => {
+  isDragging = false;
+});
