@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YTG co</title>
+    <!-- Link to your CSS file here -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="boot-screen">
+    <div class="boot-content">
+
+        <h1 class="logo">YTG</h1>
+        <p class="subtitle">BOOTING UP THE THROAT</p>
+
+        <div class="loader">
+            <div class="block"></div>
+        </div>
+
+    </div>
+</div>
+
+<main id="desktop">
+
+    <div class="window" style="top: 60px; left: 80px;">
+        <div class="titlebar">
+            <span>Welcome</span>
+            <div class="buttons">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="content">
+            <h3>YTG Enterprise</h3>
+            <p>fuck with a nigga or get fucked by a nigga</p>
+        </div>
+    </div>
+
+    <div class="window" style="top: 220px; left: 320px; width: 240px;">
+        <div class="titlebar">
+            <span>Status</span>
+            <div class="buttons">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="content">
+            <p>Loading tracks</p>
+            <p>All systems operational.</p>
+        </div>
+    </div>
+
+    <div class="window" style="top: 120px; left: 520px; width: 200px;">
+        <div class="titlebar">
+            <span>Alert</span>
+            <div class="buttons">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="content">
+            <p>This music is ass</p>
+        </div>
+    </div>
+
+    <div class="desktop-icon" onclick="openPlayer()">
+    <img src="https://cdn-icons-png.flaticon.com/512/727/727245.png" />
+    <span>Media Player</span>
+  </div>
+
+  <div id="media-player" class="window hidden">
+  <div class="title-bar">
+    <span>Windows Media Player</span>
+    <button onclick="closePlayer()">X</button>
+  </div>
+
+  <div class="content">
+    <h3>Playlist</h3>
+    <ul>
+      <li onclick="playSong('song1.mp3')">Song 1</li>
+      <li onclick="playSong('song2.mp3')">Song 2</li>
+      <li onclick="playSong('song3.mp3')">Song 3</li>
+    </ul>
+
+    <audio id="audio" controls></audio>
+  </div>
+</div>
+
+    
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
