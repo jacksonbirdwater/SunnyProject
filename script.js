@@ -24,8 +24,9 @@ let activeWindow = null;
 let offsetX = 0;
 let offsetY = 0;
 
-document.querySelectorAll(".window").forEach(win => {
+function enableDragging(win) {
   const bar = win.querySelector(".title-bar");
+  if (!bar) return;
 
   bar.addEventListener("mousedown", (e) => {
     activeWindow = win;
@@ -33,7 +34,9 @@ document.querySelectorAll(".window").forEach(win => {
     offsetX = e.clientX - win.offsetLeft;
     offsetY = e.clientY - win.offsetTop;
   });
-});
+}
+
+document.querySelectorAll(".window").forEach(enableDragging);
 
 document.addEventListener("mousemove", (e) => {
   if (!activeWindow) return;
