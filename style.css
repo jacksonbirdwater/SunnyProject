@@ -1,106 +1,50 @@
 body {
-    margin: 0;
-    color: rgb(0, 0, 0);
-    font-family: Tahoma, sans-serif;
-    overflow: hidden;
+  margin: 0;
+  font-family: Tahoma, sans-serif;
+  overflow: hidden;
 }
 
-
-
+/* BOOT SCREEN */
 #boot-screen {
-    position: fixed;
-    inset: 0;
-    background: rgb(255, 255, 255);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.boot-content {
-    text-align: center;
+  position: fixed;
+  inset: 0;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .logo {
-    font-size: 5rem;
-    font-weight: bold;
-    letter-spacing: 8px;
-}
-
-.desktop-icon {
-  width: 80px;
-  text-align: center;
-  color: white;
-  font-family: Tahoma;
-  font-size: 12px;
-  cursor: pointer;
-  margin: 20px;
-}
-
-.desktop-icon img {
-  width: 48px;
-  height: 48px;
-  display: block;
-  margin: 0 auto;
-}
-
-.window {
-  position: absolute;
-  top: 80px;
-  left: 200px;
-  width: 300px;
-  background: #c0c0c0;
-  border: 2px solid #000;
-  font-family: Tahoma;
-}
-
-.title-bar {
-  background: navy;
-  color: white;
-  padding: 4px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.hidden {
-  display: none;
-}
-
-.title-bar { cursor: move; }
-
-.title-bar {
-  user-select: none;
+  font-size: 5rem;
+  letter-spacing: 6px;
 }
 
 .subtitle {
-    color: #aaa;
-    margin-bottom: 30px;
+  color: gray;
 }
 
 .loader {
-    width: 300px;
-    height: 24px;
-    border: 2px solid white;
-    overflow: hidden;
-    position: relative;
+  width: 300px;
+  height: 20px;
+  border: 2px solid black;
+  overflow: hidden;
+  margin-top: 20px;
 }
 
 .block {
-    width: 60px;
-    height: 100%;
-    background: dodgerblue;
-    position: absolute;
-    animation: move 1.2s linear infinite;
+  width: 60px;
+  height: 100%;
+  background: dodgerblue;
+  position: absolute;
+  animation: move 1.2s linear infinite;
 }
 
 @keyframes move {
-    from {
-        left: -60px;
-    }
-    to {
-        left: 300px;
-    }
+  from { left: -60px; }
+  to { left: 300px; }
 }
 
+/* DESKTOP */
 #desktop {
   display: none;
   width: 100vw;
@@ -108,41 +52,57 @@ body {
   background: url('https://wallpapercave.com/w/wp2808001.jpg') center/cover no-repeat;
 }
 
+/* WINDOWS */
 .window {
-    position: absolute;
-    width: 280px;
-    background: #dcdcdc;
-    border: 2px solid #000;
-    box-shadow: 4px 4px 0 #000;
-    font-size: 12px;
+  position: absolute;
+  width: 280px;
+  background: #dcdcdc;
+  border: 2px solid black;
+  box-shadow: 3px 3px 0 black;
 }
 
-/* top bar */
-.titlebar {
-    background: linear-gradient(90deg, #808080, #645180);
-    color: white;
-    padding: 4px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.title-bar {
+  background: linear-gradient(90deg, #808080, #5a5a8a);
+  color: white;
+  padding: 4px;
+  display: flex;
+  justify-content: space-between;
+  cursor: move;
+  user-select: none;
 }
 
-/* buttons */
 .buttons span {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    background: white;
-    margin-left: 3px;
-    border: 1px solid black;
+  width: 12px;
+  height: 12px;
+  background: white;
+  display: inline-block;
+  margin-left: 4px;
+  border: 1px solid black;
+  cursor: pointer;
 }
 
-.fade-out {
-    animation: fadeOut 1.2s forwards;
+.content {
+  padding: 8px;
 }
 
-@keyframes fadeOut {
-    to {
-        opacity: 0;
-    }
+/* ICON */
+.desktop-icon {
+  width: 80px;
+  text-align: center;
+  color: white;
+  font-size: 12px;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.desktop-icon img {
+  width: 48px;
+  height: 48px;
+  display: block;
+  margin: auto;
+}
+
+/* HIDDEN */
+.hidden {
+  display: none;
 }

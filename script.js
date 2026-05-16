@@ -1,17 +1,10 @@
+// BOOT → DESKTOP
 setTimeout(() => {
-    document.getElementById("boot-screen").classList.add("fade-out");
+  document.getElementById("boot-screen").style.display = "none";
+  document.getElementById("desktop").style.display = "block";
+}, 2000);
 
-    setTimeout(() => {
-        document.getElementById("boot-screen").remove();
-
-        // show desktop instead of site-content
-        document.getElementById("desktop").style.display = "block";
-
-        document.body.style.overflow = "auto";
-    }, 1000);
-
-}, 4000);
-
+// MEDIA PLAYER
 function openPlayer() {
   document.getElementById("media-player").classList.remove("hidden");
 }
@@ -26,27 +19,29 @@ function playSong(file) {
   audio.play();
 }
 
-let isDragging = false;
+// DRAG SYSTEM (ALL WINDOWS)
+let activeWindow = null;
 let offsetX = 0;
 let offsetY = 0;
 
-const windowEl = document.getElementById("media-player");
-const dragBar = document.getElementById("drag-bar");
+document.querySelectorAll(".window").forEach(win => {
+  const bar = win.querySelector(".title-bar");
 
-dragBar.addEventListener("mousedown", (e) => {
-  isDragging = true;
+  bar.addEventListener("mousedown", (e) => {
+    activeWindow = win;
 
-  offsetX = e.clientX - windowEl.offsetLeft;
-  offsetY = e.clientY - windowEl.offsetTop;
+    offsetX = e.clientX - win.offsetLeft;
+    offsetY = e.clientY - win.offsetTop;
+  });
 });
 
 document.addEventListener("mousemove", (e) => {
-  if (!isDragging) return;
+  if (!activeWindow) return;
 
-  windowEl.style.left = (e.clientX - offsetX) + "px";
-  windowEl.style.top = (e.clientY - offsetY) + "px";
+  activeWindow.style.left = (e.clientX - offsetX) + "px";
+  activeWindow.style.top = (e.clientY - offsetY) + "px";
 });
 
 document.addEventListener("mouseup", () => {
-  isDragging = false;
+  activeWindow = null;
 });
