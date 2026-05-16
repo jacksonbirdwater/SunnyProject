@@ -22,33 +22,31 @@ window.addEventListener("DOMContentLoaded", () => {
   };
 
   // DRAG SYSTEM (FIXED)
-  let activeWindow = null;
-  let offsetX = 0;
-  let offsetY = 0;
+    let activeWindow = null;
+    let offsetX = 0;
+    let offsetY = 0;
 
-  function makeDraggable(win) {
-    const bar = win.querySelector(".title-bar");
+    document.addEventListener("mousedown", (e) => {
+    const bar = e.target.closest(".title-bar");
     if (!bar) return;
 
-    bar.addEventListener("mousedown", (e) => {
-      activeWindow = win;
+    activeWindow = bar.closest(".window");
 
-      offsetX = e.clientX - win.offsetLeft;
-      offsetY = e.clientY - win.offsetTop;
+    if (!activeWindow) return;
+
+    offsetX = e.clientX - activeWindow.offsetLeft;
+    offsetY = e.clientY - activeWindow.offsetTop;
     });
-  }
 
-  document.querySelectorAll(".window").forEach(makeDraggable);
-
-  document.addEventListener("mousemove", (e) => {
+    document.addEventListener("mousemove", (e) => {
     if (!activeWindow) return;
 
     activeWindow.style.left = (e.clientX - offsetX) + "px";
     activeWindow.style.top = (e.clientY - offsetY) + "px";
-  });
+    });
 
-  document.addEventListener("mouseup", () => {
+    document.addEventListener("mouseup", () => {
     activeWindow = null;
-  });
+    });
 
 });
